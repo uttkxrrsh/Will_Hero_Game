@@ -80,6 +80,23 @@ public class Controller implements Initializable{
         jump.setAutoReverse(true);
         jump.play();
     }
+
+    public void jump(){
+        TranslateTransition jump = new TranslateTransition();
+        jump.setNode(herowithsword);
+        jump.setDuration(Duration.millis(700));
+        jump.setCycleCount(TranslateTransition.INDEFINITE);
+        jump.setByY(-100);
+        jump.setAutoReverse(true);
+        jump.play();
+    }
+
+    public void dash(MouseEvent event) throws IOException{
+        TranslateTransition dash = new TranslateTransition();
+        dash.setNode(herowithsword);
+        dash.setByX(100);
+        dash.play();
+    }
     
 
 }
