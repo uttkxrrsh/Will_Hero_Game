@@ -37,7 +37,7 @@
             <Image url="@../assets/RedOrc1.png" />
          </image>
       </ImageView>
-      <Pane fx:id="Herowithsword" layoutX="105.0" layoutY="255.0">
+      <Pane fx:id="herowithsword" layoutX="105.0" layoutY="255.0">
          <children>
             <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>

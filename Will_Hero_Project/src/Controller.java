@@ -1,5 +1,11 @@
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,12 +13,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class Controller {
+public class Controller implements Initializable{
 
     private Stage stage;
     private Scene scene;
+
+    @FXML
+    private Pane herowithsword; 
 
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
@@ -49,8 +60,8 @@ public class Controller {
     public void logout(MouseEvent event) throws IOException{
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Exit??");
-        alert.setHeaderText("You are about to Exit the game");
-        alert.setContentText("Do you want to Exit the game without saving?");
+        alert.setHeaderText("You are about to exit the game");
+        alert.setContentText("Do you want to exit the game without saving?");
 
         if(alert.showAndWait().get() == ButtonType.OK){
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -58,5 +69,17 @@ public class Controller {
             stage.close();
         }
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        TranslateTransition jump = new TranslateTransition();
+        jump.setNode(herowithsword);
+        jump.setDuration(Duration.millis(700));
+        jump.setCycleCount(TranslateTransition.INDEFINITE);
+        jump.setByY(-100);
+        jump.setAutoReverse(true);
+        jump.play();
+    }
+    
 
 }
