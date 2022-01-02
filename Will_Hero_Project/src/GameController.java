@@ -129,6 +129,8 @@ public class GameController extends GameObject implements Initializable{
     private Pane basepane;
     @FXML
     private Text points;
+    @FXML
+    private Text points1;
 
     Hero hero = new Hero();
     Orc orc_1 = new Orc();
@@ -323,17 +325,28 @@ public class GameController extends GameObject implements Initializable{
     public void checkCollision(){
         for(Orc i : GameObject.getOrcList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                
+                System.out.println("collision");
             }
         }
         for(Coin i: GameObject.getCoinList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
                 System.out.println("collision");
+                i.getImage().setLayoutY(500);
+                i.getImage().setVisible(false);
+                hero.setStarsCollected(1);
+                points1.setText(hero.getStarsCollected() + "");
+                System.out.println("1 Coin collected");
+                GameObject.getCoinList().remove(i);
             }
         }
         for(Chest i:GameObject.getChestList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                System.out.println("collision");
+                if(i.isClosed()){
+                    i.open();
+                    hero.setStarsCollected(10);
+                    points1.setText(hero.getStarsCollected() + "");
+                    System.out.println("10 coins collected");
+                }
             }
         }
     }

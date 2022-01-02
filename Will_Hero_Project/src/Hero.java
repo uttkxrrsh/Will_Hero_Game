@@ -10,7 +10,7 @@ public class Hero extends GameObject implements Jumper{
     private int points = 0;
 
     public int getStarsCollected() { return starscollected; }
-    public void setStarsCollected(int starscollected) { starscollected++;}
+    public void setStarsCollected(int i) { this.starscollected += i;}
 
     public Hero(){
         super();
