@@ -8,6 +8,7 @@ import javafx.util.Duration;
 public class Hero extends GameObject implements Jumper{
 
     private int starscollected = 0;
+    private int points = 0;
     
     public int getStarsCollected() { return starscollected; }
     public void setStarsCollected(int starscollected) { starscollected++;}
@@ -27,6 +28,9 @@ public class Hero extends GameObject implements Jumper{
         TranslateTransition dash = new TranslateTransition();
         dash.setNode(node);
         dash.setByX(100);
+        dash.setDuration(Duration.millis(100));
         dash.play();
+        points++;
+        System.out.println(points);
     }
 }

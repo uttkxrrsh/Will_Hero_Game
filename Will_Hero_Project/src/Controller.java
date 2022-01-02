@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Controller implements Initializable{
 
@@ -102,10 +103,12 @@ public class Controller implements Initializable{
         TranslateTransition dash = new TranslateTransition();
         dash.setNode(base);
         dash.setByX(-100);
+        dash.setDuration(Duration.millis(100));
         dash.play();
         TranslateTransition imgmove = new TranslateTransition();
         imgmove.setNode(basepane);
         imgmove.setByX(100);
+        imgmove.setDuration(Duration.millis(100));
         imgmove.play();
     }
 
@@ -117,4 +120,6 @@ public class Controller implements Initializable{
             System.out.println("Collision");
         }
     }
+
+    
 }
