@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,9 +15,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Controller implements Initializable{
 
@@ -32,6 +33,10 @@ public class Controller implements Initializable{
     private ImageView redorc;
     @FXML
     private ImageView greenorc;
+    @FXML
+    private AnchorPane base;
+    @FXML
+    private Pane basepane;
 
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
@@ -94,6 +99,14 @@ public class Controller implements Initializable{
 
     public void dash(MouseEvent event) throws IOException {
         hero.heroDash(event,herowithsword);
+        TranslateTransition dash = new TranslateTransition();
+        dash.setNode(base);
+        dash.setByX(-100);
+        dash.play();
+        TranslateTransition imgmove = new TranslateTransition();
+        imgmove.setNode(basepane);
+        imgmove.setByX(100);
+        imgmove.play();
     }
 
     public void checkCollision(){
@@ -104,5 +117,4 @@ public class Controller implements Initializable{
             System.out.println("Collision");
         }
     }
-
 }

@@ -2,8 +2,8 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
-public class Orc extends GameObject{
-
+public class Orc extends GameObject implements Jumper{
+    @Override
     public void jump(Node node){
         TranslateTransition jump = new TranslateTransition();
         jump.setNode(node);
@@ -13,5 +13,4 @@ public class Orc extends GameObject{
         jump.setAutoReverse(true);
         jump.play();
     }
-
 }

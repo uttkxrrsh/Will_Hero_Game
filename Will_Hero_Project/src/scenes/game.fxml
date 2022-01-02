@@ -5,34 +5,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#dash" prefHeight="458.0" prefWidth="815.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="base" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#dash" prefHeight="458.0" prefWidth="815.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="238.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/BalancingRocks2.png" />
-         </image>
-      </ImageView>
+      <Pane fx:id="basepane" prefHeight="458.0" prefWidth="815.0">
+         <children>
+            <ImageView fitHeight="458.0" fitWidth="815.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/gamebackground.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="766.0" layoutY="14.0" onMouseClicked="#switchToPauseGame" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/pause.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/BalancingRocks3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="363.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="367.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/Islands1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="591.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/BalancingRocks5.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="greenorc" fitHeight="53.0" fitWidth="53.0" layoutX="709.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="greenorc" fitHeight="53.0" fitWidth="53.0" layoutX="690.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/Orc1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="redorc" fitHeight="53.0" fitWidth="53.0" layoutX="455.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="835.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/BalancingRocks5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="589.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/BalancingRocks5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="redorc" fitHeight="53.0" fitWidth="53.0" layoutX="457.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/RedOrc1.png" />
          </image>
@@ -51,9 +65,9 @@
             </ImageView>
          </children>
       </Pane>
-      <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="762.0" layoutY="14.0" onMouseClicked="#switchToPauseGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="250.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/pause.png" />
+            <Image url="@../assets/BalancingRocks2.png" />
          </image>
       </ImageView>
    </children>
