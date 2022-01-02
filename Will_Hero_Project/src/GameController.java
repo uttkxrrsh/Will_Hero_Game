@@ -22,11 +22,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class GameController implements Initializable{
+public class GameController extends GameObject implements Initializable{
     private Stage stage;
     private Scene scene;
-
-    GameObject gameObject;
 
 
     @FXML
@@ -126,13 +124,12 @@ public class GameController implements Initializable{
     }
 
     public void checkCollision(){
-        for(Orc i : gameObject.getOrcList()){
+        for(Orc i : GameObject.getOrcList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                // i.getImage.setBy
                 System.out.println("collision");
             }
         }
-        for(Coin i: gameObject.getCoinList()){
+        for(Coin i: GameObject.getCoinList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
                 System.out.println("collision");
             }
