@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.animation.TranslateTransition;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -19,11 +20,18 @@ import javafx.util.Duration;
 
 public class Controller implements Initializable{
 
+    private Hero hero = new Hero();
+    private Orc orc = new Orc();
+
     private Stage stage;
     private Scene scene;
 
     @FXML
-    private Pane herowithsword; 
+    private Pane herowithsword;
+    @FXML
+    private ImageView redorc;
+    @FXML
+    private ImageView greenorc;
 
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
@@ -70,33 +78,31 @@ public class Controller implements Initializable{
         }
     }
 
+    AnimationTimer collisionTimer = new AnimationTimer() {
+        @Override
+        public void handle(long timestamp){
+            checkCollision();
+        }
+    };
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        TranslateTransition jump = new TranslateTransition();
-        jump.setNode(herowithsword);
-        jump.setDuration(Duration.millis(700));
-        jump.setCycleCount(TranslateTransition.INDEFINITE);
-        jump.setByY(-100);
-        jump.setAutoReverse(true);
-        jump.play();
+        hero.jump(herowithsword);
+        orc.jump(redorc);
+        orc.jump(greenorc);
     }
 
-    public void jump(){
-        TranslateTransition jump = new TranslateTransition();
-        jump.setNode(herowithsword);
-        jump.setDuration(Duration.millis(700));
-        jump.setCycleCount(TranslateTransition.INDEFINITE);
-        jump.setByY(-100);
-        jump.setAutoReverse(true);
-        jump.play();
+    public void dash(MouseEvent event) throws IOException {
+        hero.heroDash(event,herowithsword);
     }
 
-    public void dash(MouseEvent event) throws IOException{
-        TranslateTransition dash = new TranslateTransition();
-        dash.setNode(herowithsword);
-        dash.setByX(100);
-        dash.play();
+    public void checkCollision(){
+        if(herowithsword.getBoundsInParent().intersects(redorc.getBoundsInParent())){
+            System.out.println("Collision");
+        }
+        if(herowithsword.getBoundsInParent().intersects(redorc.getBoundsInParent())){
+            System.out.println("Collision");
+        }
     }
-    
 
 }

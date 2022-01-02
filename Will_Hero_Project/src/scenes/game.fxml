@@ -37,14 +37,14 @@
             <Image url="@../assets/RedOrc1.png" />
          </image>
       </ImageView>
-      <Pane fx:id="herowithsword" layoutX="105.0" layoutY="255.0">
+      <Pane fx:id="herowithsword" layoutX="104.35009765625" layoutY="255.0">
          <children>
-            <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="0.64990234375" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/Helmet3.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="11.411773681640625" layoutY="10.145172119140625" pickOnBounds="true" preserveRatio="true" rotate="38.0">
+            <ImageView fx:id="sword" fitHeight="43.0" fitWidth="43.0" layoutX="10.47344970703125" layoutY="9.29034423828125" pickOnBounds="true" preserveRatio="true" rotate="38.0">
                <image>
                   <Image url="@../assets/WeaponSword.png" />
                </image>
