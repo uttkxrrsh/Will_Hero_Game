@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.net.URL;
+// import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.AnimationTimer;
@@ -21,23 +22,29 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Controller{
-
+public class GameController implements Initializable{
     private Stage stage;
     private Scene scene;
+
+    GameObject gameObject;
+
 
     @FXML
     private ImageView herowithsword;
     @FXML
-    private ImageView redorc;
+    private ImageView orc1;
     @FXML
-    private ImageView greenorc;
+    private ImageView orc2;
     @FXML
     private AnchorPane base;
     @FXML
     private Pane basepane;
     @FXML
     private Text points;
+
+    Hero hero = new Hero();
+    Orc orc_1 = new Orc();
+    Orc orc_2 = new Orc();
 
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
@@ -84,26 +91,51 @@ public class Controller{
         }
     }
 
+    AnimationTimer collisionTimer = new AnimationTimer() {
+        @Override
+        public void handle(long timestamp){
+            checkCollision();
+        }
+    };
 
-    // @Override
-    // public void initialize(URL location, ResourceBundle resources) {
-    //     hero.jump(herowithsword);
-    //     orc.jump(redorc);
-    //     orc.jump(greenorc);
-    // }
 
-    // public void dash(MouseEvent event) throws IOException {
-    //     int p = hero.heroDash(event,herowithsword);
-    //     points.setText(""+p);
-    //     TranslateTransition dash = new TranslateTransition();
-    //     dash.setNode(base);
-    //     dash.setByX(-100);
-    //     dash.setDuration(Duration.millis(100));
-    //     dash.play();
-    //     TranslateTransition imgmove = new TranslateTransition();
-    //     imgmove.setNode(basepane);
-    //     imgmove.setByX(100);
-    //     imgmove.setDuration(Duration.millis(100));
-    //     imgmove.play();
-    // }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        hero.setImage(herowithsword);
+        orc_1.setImage(orc1);
+        orc_2.setImage(orc2);
+        hero.jump(herowithsword);
+        orc_1.jump(orc1);
+        orc_1.jump(orc2);
+        collisionTimer.start();
+    }
+
+    public void dash(MouseEvent event) throws IOException {
+        TranslateTransition dash = new TranslateTransition();
+        dash.setNode(base);
+        dash.setByX(-100);
+        dash.setDuration(Duration.millis(100));
+        dash.play();
+        TranslateTransition imgmove = new TranslateTransition();
+        imgmove.setNode(basepane);
+        imgmove.setByX(100);
+        imgmove.setDuration(Duration.millis(100));
+        imgmove.play();
+        int p = hero.heroDash(event,herowithsword);
+        points.setText(""+p);
+    }
+
+    public void checkCollision(){
+        for(Orc i : gameObject.getOrcList()){
+            if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
+                // i.getImage.setBy
+                System.out.println("collision");
+            }
+        }
+        for(Coin i: gameObject.getCoinList()){
+            if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
+                System.out.println("collision");
+            }
+        }
+    }
 }

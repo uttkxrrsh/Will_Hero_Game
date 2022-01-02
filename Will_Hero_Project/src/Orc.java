@@ -3,6 +3,12 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class Orc extends GameObject implements Jumper{
+
+    public Orc(){
+        super();
+        GameObject.getOrcList().add(this);
+    }
+
     @Override
     public void jump(Node node){
         TranslateTransition jump = new TranslateTransition();
