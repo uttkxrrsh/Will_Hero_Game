@@ -33,6 +33,36 @@ public class GameController extends GameObject implements Initializable{
     @FXML
     private ImageView orc2;
     @FXML
+    private ImageView orc3;
+    @FXML
+    private ImageView orc4;
+    @FXML
+    private ImageView orc5;
+    @FXML
+    private ImageView orc6;
+    @FXML
+    private ImageView orc7;
+    @FXML
+    private ImageView orc8;
+    @FXML
+    private ImageView orc9;
+    @FXML
+    private ImageView orc10;
+    @FXML
+    private ImageView orc11;
+    @FXML
+    private ImageView orc12;
+    @FXML
+    private ImageView orc13;
+    @FXML
+    private ImageView orc14;
+    @FXML
+    private ImageView orc15;
+    @FXML
+    private ImageView orc16;
+    @FXML
+    private ImageView orc17;
+    @FXML
     private AnchorPane base;
     @FXML
     private Pane basepane;
@@ -115,10 +145,40 @@ public class GameController extends GameObject implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         hero.setImage(herowithsword);
         orc_1.setImage(orc1);
-        orc_2.setImage(orc2);
+        orc_1.setImage(orc2);
+        orc_1.setImage(orc3);
+        orc_1.setImage(orc4);
+        orc_1.setImage(orc5);
+        orc_1.setImage(orc6);
+        orc_1.setImage(orc7);
+        orc_1.setImage(orc8);
+        orc_1.setImage(orc9);
+        orc_1.setImage(orc10);
+        orc_1.setImage(orc11);
+        orc_1.setImage(orc12);
+        orc_1.setImage(orc13);
+        orc_1.setImage(orc14);
+        orc_1.setImage(orc15);
+        orc_1.setImage(orc16);
+        orc_1.setImage(orc17);
         hero.jump(herowithsword);
         orc_1.jump(orc1);
         orc_1.jump(orc2);
+        orc_1.jump(orc3);
+        orc_1.jump(orc4);
+        orc_1.jump(orc5);
+        orc_1.jump(orc6);
+        orc_1.jump(orc7);
+        orc_1.jump(orc8);
+        orc_1.jump(orc9);
+        orc_1.jump(orc10);
+        orc_1.jump(orc11);
+        orc_1.jump(orc12);
+        orc_1.jump(orc13);
+        orc_1.jump(orc14);
+        orc_1.jump(orc15);
+        orc_1.jump(orc16);
+        orc_1.jump(orc17);
         collisionTimer.start();
     }
 
