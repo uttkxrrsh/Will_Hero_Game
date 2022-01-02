@@ -87,7 +87,8 @@ public class GameController extends GameObject implements Initializable{
     Orc orc_15 = new Orc();
     Orc orc_16 = new Orc();
     Orc orc_17 = new Orc();
-
+    Coin coin_1 = new Coin();
+    
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -161,6 +162,7 @@ public class GameController extends GameObject implements Initializable{
         orc_1.setImage(orc15);
         orc_1.setImage(orc16);
         orc_1.setImage(orc17);
+        coin_1.setImage(coin1);
         hero.jump(herowithsword);
         orc_1.jump(orc1);
         orc_1.jump(orc2);

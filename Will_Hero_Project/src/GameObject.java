@@ -9,6 +9,7 @@ public class GameObject implements Serializable{
     private static ArrayList<Hero> herolist = new ArrayList<>();
     private static ArrayList<Coin> coinlist = new ArrayList<>();
     private static ArrayList<Chest> chestlist = new ArrayList<>();
+    private static ArrayList<Obstacle> obstaclelist = new ArrayList<>();
 
     public static ArrayList<Orc> getOrcList(){
         return orclist;
@@ -24,6 +25,10 @@ public class GameObject implements Serializable{
 
     public static ArrayList<Chest> getChestList(){
         return chestlist;
+    }
+
+    public static ArrayList<Obstacle> getObstacleList(){
+        return obstaclelist;
     }
 
     @FXML

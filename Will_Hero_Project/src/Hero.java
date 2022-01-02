@@ -1,12 +1,7 @@
 import java.io.IOException;
-
-import javafx.animation.AnimationTimer;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class Hero extends GameObject implements Jumper{
