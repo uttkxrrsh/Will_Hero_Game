@@ -40,7 +40,7 @@ public class Hero extends GameObject implements Jumper{
         dash.setDuration(Duration.millis(100));
         dash.play();
         points++;
-        System.out.println(points);
+        System.out.println("Current Score: " + points);
         return points;
     }
 

@@ -1,12 +1,7 @@
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Controller{
 
@@ -83,27 +77,4 @@ public class Controller{
             stage.close();
         }
     }
-
-
-    // @Override
-    // public void initialize(URL location, ResourceBundle resources) {
-    //     hero.jump(herowithsword);
-    //     orc.jump(redorc);
-    //     orc.jump(greenorc);
-    // }
-
-    // public void dash(MouseEvent event) throws IOException {
-    //     int p = hero.heroDash(event,herowithsword);
-    //     points.setText(""+p);
-    //     TranslateTransition dash = new TranslateTransition();
-    //     dash.setNode(base);
-    //     dash.setByX(-100);
-    //     dash.setDuration(Duration.millis(100));
-    //     dash.play();
-    //     TranslateTransition imgmove = new TranslateTransition();
-    //     imgmove.setNode(basepane);
-    //     imgmove.setByX(100);
-    //     imgmove.setDuration(Duration.millis(100));
-    //     imgmove.play();
-    // }
 }

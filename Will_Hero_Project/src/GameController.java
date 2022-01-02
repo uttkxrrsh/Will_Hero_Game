@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.net.URL;
-// import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.AnimationTimer;
@@ -43,6 +42,21 @@ public class GameController extends GameObject implements Initializable{
     Hero hero = new Hero();
     Orc orc_1 = new Orc();
     Orc orc_2 = new Orc();
+    Orc orc_3 = new Orc();
+    Orc orc_4 = new Orc();
+    Orc orc_5 = new Orc();
+    Orc orc_6 = new Orc();
+    Orc orc_7 = new Orc();
+    Orc orc_8 = new Orc();
+    Orc orc_9 = new Orc();
+    Orc orc_10 = new Orc();
+    Orc orc_11 = new Orc();
+    Orc orc_12 = new Orc();
+    Orc orc_13 = new Orc();
+    Orc orc_14 = new Orc();
+    Orc orc_15 = new Orc();
+    Orc orc_16 = new Orc();
+    Orc orc_17 = new Orc();
 
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
@@ -126,10 +140,15 @@ public class GameController extends GameObject implements Initializable{
     public void checkCollision(){
         for(Orc i : GameObject.getOrcList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                System.out.println("collision");
+                
             }
         }
         for(Coin i: GameObject.getCoinList()){
+            if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
+                System.out.println("collision");
+            }
+        }
+        for(Chest i:GameObject.getChestList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
                 System.out.println("collision");
             }

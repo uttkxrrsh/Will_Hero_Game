@@ -12,10 +12,10 @@ public class Orc extends GameObject implements Jumper{
     @Override
     public void jump(Node node){
         TranslateTransition jump = new TranslateTransition();
-        jump.setNode(node);
+        jump.setNode(node); 
         jump.setDuration(Duration.millis(900));
         jump.setCycleCount(TranslateTransition.INDEFINITE);
-        jump.setByY(-150);
+        jump.setByY(-200);
         jump.setAutoReverse(true);
         jump.play();
     }
