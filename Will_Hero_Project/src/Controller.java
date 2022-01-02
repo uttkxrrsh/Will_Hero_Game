@@ -41,8 +41,21 @@ public class Controller{
         stage.show();
     }
 
+    public void makeScene(String scenename) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
     public void switchToGame(MouseEvent event) throws IOException{
         makeScene(event, "game.fxml");
+    }
+
+    public void switchToPauseGame()throws IOException{
+        makeScene("pause.fxml");
     }
 
     public void switchToHome(MouseEvent event) throws IOException{

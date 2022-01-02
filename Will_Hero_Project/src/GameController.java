@@ -132,6 +132,8 @@ public class GameController extends GameObject implements Initializable{
     @FXML
     private Text points1;
 
+    private Controller sceneControl = new Controller();
+
     Hero hero = new Hero();
     Orc orc_1 = new Orc();
     Orc orc_2 = new Orc();
@@ -325,12 +327,11 @@ public class GameController extends GameObject implements Initializable{
     public void checkCollision(){
         for(Orc i : GameObject.getOrcList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                System.out.println("collision");
+                System.out.println("collision occured");
             }
         }
         for(Coin i: GameObject.getCoinList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
-                System.out.println("collision");
                 i.getImage().setLayoutY(500);
                 i.getImage().setVisible(false);
                 hero.setStarsCollected(1);
