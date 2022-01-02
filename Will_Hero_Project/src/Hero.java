@@ -12,6 +12,8 @@ public class Hero extends GameObject implements Jumper{
     public int getStarsCollected() { return starscollected; }
     public void setStarsCollected(int i) { this.starscollected += i;}
 
+    public int getPoints() { return points;}
+
     public Hero(){
         super();
         GameObject.getHeroList().add(this);
@@ -37,10 +39,6 @@ public class Hero extends GameObject implements Jumper{
         points++;
         System.out.println("Current Score: " + points);
         return points;
-    }
-
-    public void die(){
-        
     }
 
 }

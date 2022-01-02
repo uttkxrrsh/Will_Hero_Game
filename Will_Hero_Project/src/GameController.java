@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -131,8 +132,13 @@ public class GameController extends GameObject implements Initializable{
     private Text points;
     @FXML
     private Text points1;
+    @FXML
+    private TextField end;
+    @FXML
+    private ImageView tnt1;
+    @FXML
+    private ImageView tnt2;
 
-    private Controller sceneControl = new Controller();
 
     Hero hero = new Hero();
     Orc orc_1 = new Orc();
@@ -183,7 +189,10 @@ public class GameController extends GameObject implements Initializable{
     Chest chest_2 = new Chest();
     Chest chest_3 = new Chest();
     Chest chest_4 = new Chest();
-    
+    Obstacle tnt_1 = new Obstacle();
+    Obstacle tnt_2 = new Obstacle();
+
+
     public void makeScene(MouseEvent event, String scenename) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("scenes/"+scenename));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -306,6 +315,8 @@ public class GameController extends GameObject implements Initializable{
         chest_2.setImage(chest2);
         chest_3.setImage(chest3);
         chest_4.setImage(chest4);
+        tnt_1.setImage(tnt1);
+        tnt_2.setImage(tnt2);
         collisionTimer.start();
     }
 
@@ -327,6 +338,8 @@ public class GameController extends GameObject implements Initializable{
     public void checkCollision(){
         for(Orc i : GameObject.getOrcList()){
             if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
+                end.setOpacity(1);
+                hero.getImage().setVisible(false);
                 System.out.println("collision occured");
             }
         }
@@ -349,6 +362,20 @@ public class GameController extends GameObject implements Initializable{
                     System.out.println("10 coins collected");
                 }
             }
+        }
+        for(Obstacle i:GameObject.getObstacleList()){
+            if(herowithsword.getBoundsInParent().intersects(i.getImage().getBoundsInParent())){
+                if(i.isIntact()){
+                    i.blast();
+                    end.setOpacity(1);
+                    hero.getImage().setVisible(false);
+                    System.out.println("collision occured");
+                }
+            }
+        }
+        if(hero.getPoints() == 121){
+            end.setText("You Won Click to Exit");
+            end.setOpacity(1);
         }
     }
 }
